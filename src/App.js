@@ -1,6 +1,6 @@
 import './App.css';
 
-import StoreCard from './components/storeCard'
+import StoreCard from "./components/storeCard"
 
 function App() {
   return (
