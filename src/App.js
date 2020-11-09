@@ -1,10 +1,13 @@
 import './App.css';
 
+import StoreCard from './components/storeCard'
+
 function App() {
   return (
     <div className="container">
       <h1>Velkommen til pilserpils.no</h1>
-      <img src="/dahls.png" alt="Pilserpils" />
+      <p>En nettbutikk for alt som er relatert til at pils er pils</p>
+      <StoreCard />
     </div>
   );
 }
