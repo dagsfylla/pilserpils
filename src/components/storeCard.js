@@ -1,4 +1,10 @@
+import { useState } from 'react';
+
 import styled from "styled-components";
+
+import useComponentVisible from '../utils/visible';
+
+import Modal from './modal';
 
 const Card = styled.div`
     border: 1px solid rgba(130, 130, 130, 0.6);
@@ -22,7 +28,7 @@ const Row = styled.div`
   margin-bottom: 0.5em;
 `;
 
-const DisabledButton = styled.div`
+const Button = styled.button`
   border: 1px solid grey;
   border-radius: 5px;
   background-color: green;
@@ -31,17 +37,23 @@ const DisabledButton = styled.div`
   align-items: center;
 `
 
-function StoreCard() {
+function StoreCard(props) {
+    console.log(props);
+
+    const item = props.item
+    console.log(item);
+
     return (
         <div>
             <Card>
+                <h2>{item.name}</h2>
                 <Row>
                     <Col>
                         <Row>
-                            <img src="/soldout_transparent.png" alt="Sold out" style={{ maxWidth: 350 }} />
+                            <img src={item.image} alt="Sold out" style={{ maxWidth: 200 }} />
                         </Row>
                         <Row>
-                            <DisabledButton>Registrer din interesse!</DisabledButton>
+                            <Button>Registrer din interesse!</Button>
                         </Row>
                     </Col>
                     <Col>
@@ -49,7 +61,7 @@ function StoreCard() {
                             <p><b>Produktinformasjon:</b></p>
                         </Row>
                         <Row>
-                            <p>Vår "pils er pils"-genser er vår fremste merkevare. Denne genseren er svært ettertraktet, og har kun blitt gitt ut i et begrenset opplag. Sikre deg denne før det er tomt! </p>
+                            <p>{item.text}</p>
                         </Row>
                         <Row>
                             <p><b>Kjendiser som bruker denne: </b></p>
@@ -58,7 +70,7 @@ function StoreCard() {
                             <p>(Kommer snart...)</p>
                         </Row>
                         <Row>
-                            <p><b>Pris: </b><i>Kun 400kr</i></p>
+                            <p><b>Pris: </b><i>{item.price}kr</i></p>
                         </Row>
                     </Col>
                 </Row>

@@ -3,32 +3,32 @@ import PropTypes from 'prop-types';
 
 class ConfirmButton extends Component {
 
-static propTypes = {
-    action: PropTypes.func.isRequired
-};
+    static propTypes = {
+        action: PropTypes.func.isRequired
+    };
 
-state = {
-    timesPressed: 0
-}
+    state = {
+        timesPressed: 0
+    }
 
-onPress = () => {
-    const { timesPressed } = this.state;
-    const { action } = this.props; 
+    onPress = () => {
+        const { timesPressed } = this.state;
+        const { action } = this.props;
 
-    this.setState({
-        timesPressed: timesPressed + 1
-    }, () => {
-        if(this.state.timesPressed == 3){
-            action();
-        }
-    })
-}
+        this.setState({
+            timesPressed: timesPressed + 1
+        }, () => {
+            if (this.state.timesPressed === 3) {
+                action();
+            }
+        })
+    }
 
     render() {
         const { timesPressed } = this.state;
         const { dialog } = this.props;
         return (
-            <button onClick = {this.onPress}> {dialog[timesPressed]} </button>
+            <button onClick={this.onPress}> {dialog[timesPressed]} </button>
         );
     }
 }
