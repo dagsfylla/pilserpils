@@ -1,10 +1,4 @@
-import { useState } from 'react';
-
 import styled from "styled-components";
-
-import useComponentVisible from '../utils/visible';
-
-import Modal from './modal';
 
 const Card = styled.div`
     border: 1px solid rgba(130, 130, 130, 0.6);
